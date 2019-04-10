@@ -1,1 +1,7 @@
-<h1>This is your tasks index page!</h1>
+<h1 id="my-heading">This is your tasks index page!</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li class="task"><%= task.name %></li>
+  <% end %>
+</ul>
