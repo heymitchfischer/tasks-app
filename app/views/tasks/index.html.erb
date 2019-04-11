@@ -1,7 +1,12 @@
 <h1 id="my-heading">This is your tasks index page!</h1>
 
-<ul>
+<%= form_tag("/tasks", method: :post) do %>
+  <%= text_field_tag(:name) %>
+  <%= submit_tag("Add new task", id: "task-button") %>
+<% end %>
+
+<ul id="task-list">
   <% @tasks.each do |task| %>
-    <li class="task"><%= task.name %></li>
+    <li data-id="<%= task.id %>" class="task <%= "completed" if task.completed? %>"><%= task.name %></li>
   <% end %>
 </ul>
